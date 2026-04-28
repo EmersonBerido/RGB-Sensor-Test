@@ -70,11 +70,37 @@ void PrintColorFromHex(uint16_t red, uint16_t green, uint16_t blue) {
 */
 char* GetColorNameFromHex(int hexValue) {
   
+  uint8_t red = (hexValue >> 16) & 0xFF;
+  uint8_t green = (hexValue >> 8) & 0xFF;
+  uint8_t blue = hexValue & 0xFF;
+
+  int bestName = 0;
+  int bestDiff = MAX_HEX_VALUE;
+
   for (int i = 0; i < 5; i++) {
-    if (predefinedColors[i].hex == hexValue) {
-      return predefinedColors[i].name;
+    int redDiff = (predefinedColors[i].hex >> 16) & 0xff;
+    int greenDiff = (predefinedColors[i].hex >> 8) & 0xff;
+    int blueDiff = predefinedColors[i].hex & 0xff;
+
+    int currDiff = 
+      (red > redDiff ? red - redDiff : redDiff - red) +
+      (green > greenDiff ? green - greenDiff : greenDiff - green) +
+      (blue > blueDiff ? blue - blueDiff : blueDiff - blue);
+
+    if (currDiff < bestDiff) {
+      bestDiff = currDiff;
+      bestName = i;
     }
+
   }
 
-  return "N/A Color"; // no match
+  return predefinedColors[bestName].name;
+
+  // for (int i = 0; i < 5; i++) {
+  //   if (predefinedColors[i].hex == hexValue) {
+  //     return predefinedColors[i].name;
+  //   }
+  // }
+
+  // return "N/A Color"; // no match
 }
