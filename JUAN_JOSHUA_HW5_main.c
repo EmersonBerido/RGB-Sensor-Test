@@ -24,10 +24,12 @@ int handle = -1;
 
 struct colors predefinedColors[5] = {
     {"Black", 0x000000},
-    {"Red", 0xff0000},       
-    {"Green", 0x00ff00},
-    {"Blue", 0x0000ff},   
-    {"White", 0xffffff}};
+    {"Red",   0xFF5555},
+    {"Green", 0x55FF55},
+    {"Blue",  0x5599FF},
+    {"White", 0xFFFFFF}
+};
+
 
 // Helper Functions
 void TurnOffRGB(int signal);

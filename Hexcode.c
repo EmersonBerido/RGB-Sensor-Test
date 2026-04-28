@@ -17,6 +17,10 @@
 #include <stdio.h>
 #include "Hexcode.h"
 
+int HEX_VALUES[4] = {
+  MIN_HEX_VALUE, MID1_HEX_VALUE, MID2_HEX_VALUE, MAX_HEX_VALUE
+};
+
 /*
   Rounds Color Value to 0 or 255
   Rounded values correspond to possible values for predefined colors
@@ -25,8 +29,21 @@
 */
 uint16_t RoundHexValue(int value) {
 
-  if (value < CUT_OFF_HEX_VALUE) return MIN_HEX_VALUE;
-  else return MAX_HEX_VALUE;
+  uint16_t closestDiff = MAX_HEX_VALUE;
+  uint16_t closestHexValue = 0x0;
+
+  for (int i = 0; i < 4; i++) {
+    int diff = (value > HEX_VALUES[i]) ? 
+      value - HEX_VALUES[i] : 
+      HEX_VALUES[i] - value;
+
+    if (diff < closestDiff) {
+      closestDiff = diff;
+      closestHexValue = HEX_VALUES[i];
+    }
+  }
+
+  return closestHexValue;
 }
 
 /*
