@@ -66,6 +66,6 @@ struct colors {
   int hex;
 };
 
-extern struct colors predefinedColors[27];
+extern struct colors predefinedColors[5];
 
 #endif

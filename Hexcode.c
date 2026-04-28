@@ -18,14 +18,14 @@
 #include "Hexcode.h"
 
 /*
-  Rounds Color Value to 0, 128, or 255
+  Rounds Color Value to 0 or 255
   Rounded values correspond to possible values for predefined colors
 
   Returns rounded value
 */
 uint16_t RoundHexValue(int value) {
-  if (value < 65) return MIN_HEX_VALUE;
-  else if (value < 192) return MIDDLE_HEX_VALUE;
+
+  if (value < CUT_OFF_HEX_VALUE) return MIN_HEX_VALUE;
   else return MAX_HEX_VALUE;
 }
 
@@ -53,7 +53,7 @@ void PrintColorFromHex(uint16_t red, uint16_t green, uint16_t blue) {
 */
 char* GetColorNameFromHex(int hexValue) {
   
-  for (int i = 0; i < 27; i++) {
+  for (int i = 0; i < 5; i++) {
     if (predefinedColors[i].hex == hexValue) {
       return predefinedColors[i].name;
     }

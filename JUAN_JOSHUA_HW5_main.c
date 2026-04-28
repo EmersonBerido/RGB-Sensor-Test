@@ -22,20 +22,11 @@
 
 int handle = -1;
 
-struct colors predefinedColors[27] = {
-    {"Black", 0x000000},       {"Navy", 0x000080},
-    {"Blue", 0x0000ff},        {"Green", 0x008000},
-    {"Teal", 0x008080},        {"Dodger Blue-ish", 0x0080ff},
-    {"Lime", 0x00ff00},        {"Spring Green", 0x00ff80},
-    {"Cyan", 0x00ffff},        {"Maroon", 0x800000},
-    {"Purple", 0x800080},      {"Violet", 0x8000ff},
-    {"Olive", 0x808000},       {"Gray", 0x808080},
-    {"Light Blue", 0x8080ff},  {"Yellow-Green", 0x80ff00},
-    {"Light Green", 0x80ff80}, {"Aquamarine", 0x80ffff},
-    {"Red", 0xff0000},         {"Deep Pink-ish", 0xff0080},
-    {"Magenta", 0xff00ff},     {"Orange", 0xff8000},
-    {"Salmon", 0xff8080},      {"Pink", 0xff80ff},
-    {"Yellow", 0xffff00},      {"Light Yellow", 0xffff80},
+struct colors predefinedColors[5] = {
+    {"Black", 0x000000},
+    {"Red", 0xff0000},       
+    {"Green", 0x00ff00},
+    {"Blue", 0x0000ff},   
     {"White", 0xffffff}};
 
 // Helper Functions

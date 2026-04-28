@@ -16,7 +16,7 @@
 #define HEXCODE_H
 
 #define MAX_HEX_VALUE 0xFF
-#define MIDDLE_HEX_VALUE 0x80
+#define CUT_OFF_HEX_VALUE 0x80
 #define MIN_HEX_VALUE 0x00
 
 #include <stdint.h>
